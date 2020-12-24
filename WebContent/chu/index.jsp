@@ -42,8 +42,8 @@
 		</div>
 		<div id="categoryWrap">
 			<div id="categoryBar">
-				<div class="category"><a href="#">블로그</a></div>
-				<div class="category"><a href="#">지식인</a></div>
+				<div class="category"><a href="../blog/blog_main.jsp">블로그</a></div>
+				<div class="category"><a href="../choi/naverin_main.jsp">지식인</a></div>
 				<div class="category"><a href="#">쇼핑</a></div>
 				<div class="category"><a href="#">여행</a></div>
 			</div>
@@ -104,19 +104,21 @@
 			</div>
 			
 			<div class="conRight">
+			
 				<div class="loginBox">
 					<div class="loginBoxTop">
-						<input class="loginButton" onclick="location.href='login.jsp'" type="button" value="로그인">
+						<input class="loginButton" onclick="location.href='../joon/login.jsp'" type="button" value="로그인">
 					</div>
 					<div class="loginBoxBottom">
 						<div class="loginBoxBottomLeft">
-							<span style="margin-left: 10px;"><a href="#">회원가입</a></span>
+							<span style="margin-left: 10px;"><a href="../joon/member.jsp">회원가입</a></span>
 						</div>
 						<div class="loginBoxBottomRight">
 							<span style="margin-right: 10px;"><a href="#">ID 찾기</a></span>
 						</div>
 					</div>
 				</div>
+				
 				<div class="weatherBox">날씨</div>
 				<div class="shopBox">
 				<%
