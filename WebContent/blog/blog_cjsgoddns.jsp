@@ -1,8 +1,20 @@
+<%@page import="blog.BlogPostBean"%>
+<%@page import="blog.CateBean"%>
+<%@page import="java.util.Vector"%>
 <%@ page contentType="text/html; charset=EUC-KR"%>
-
+<%request.setCharacterEncoding("EUC-KR");%>
+<jsp:useBean id="blogBean" class="blog.BlogBean"/>
+<jsp:useBean id="blogMgr" class="blog.BlogMgr"/>
+<jsp:useBean id="cateBean" class="blog.CateBean"/>
+<jsp:useBean id="cateMgr" class="blog.CateMgr"/>
+<jsp:useBean id="postMgr" class="blog.BlogPostMgr"/>
 <%
-		request.setCharacterEncoding("EUC-KR");
 		String id = "cjsgoddns";
+		blogBean = blogMgr.getBlogPage(id);
+		String blogBanner = blogBean.getBannerImg();
+		String blogProfileDesc = blogBean.getProfileDesc();
+		String blogProfileImg = blogBean.getProfileImage();
+		
 %>
 
 <!DOCTYPE html>
@@ -25,7 +37,7 @@
 		</div>
 		
 		<div id="mainImgWrap">
-			<div>메인이미지</div>
+			<div><img src="./resources/img/<%=blogBanner %>"></div>
 		</div>
 		<div id="container">
 		
@@ -33,13 +45,13 @@
 				
 				<div class="blog-profileWrap">
 					<div class="blog-profileImg">
-						<div>프사</div>
+						<div><img src="./resources/img/<%=blogProfileImg %>"></div>
 					</div>
 					<div class="blog-profileId">					
-						<div>아이디</div>
+						<div><%=id %>님의 블로그</div>
 					</div>
 					<div class="blog-profileDesc">
-						<div>할 말</div>
+						<div><%=blogProfileDesc %></div>
 					</div>
 				</div>
 				<div style="margin-top: 5px;">글쓰기</div>
@@ -47,23 +59,45 @@
 					<form class="categoryFrm">
 						<ul>
 							<li class="pCategory"><strong>카테고리</strong></li>
+							<%
+									Vector<CateBean> cateVlist = new Vector<CateBean>();
+									cateVlist = cateMgr.getBlogCategory(id);
+									for(int i=0; i<cateVlist.size(); i++){
+										cateBean = cateVlist.get(i);
+										String cateName = cateBean.getBlogCateName();
+										int cateNum = cateBean.getBlogCateNum();
+							%>
+							
 							<li class="pCategory">
-								<input type="submit" class="textbtn" name="category" value="IT"></li>
-  							<li class="pCategory">
-								<input type="submit" class="textbtn" name="category" value="취미"></li>						
-  							<li class="pCategory">
-								<input type="submit" class="textbtn" name="category" value="운동"></li>
+								<input type="submit" class="textbtn" name="category" value="<%=cateName%>"></li>
+							
+							<%	} %>
+								
 						</ul>
 					</form>
 				</div>
 				
 			</div>
 			
-			<div class="blog-conRight">
 			
-				<div class="postWrap">
-					글
+			<div class="blog-conRight">
+			<%
+					Vector<BlogPostBean> postVlist = new Vector<BlogPostBean>();
+					String cateName = request.getParameter("category");
+					postVlist = postMgr.getPostList(id, cateName);
+					for(int i=0; i<postVlist.size(); i++){
+						BlogPostBean bean = postVlist.get(i);
+						String title = bean.getPostTitle();
+						String text = bean.getPostText();
+						int like = bean.getPostLike();
+						int view = bean.getPostView();
+			%>
+				<div class="postWrap"><%=cateName %>
+					<div>제목: <%=title %></div>
+					<div>내용 <%=text %></div>
+					<div>좋아요: <%=like %></div>
 				</div>
+			<%	} %>
 				<div class="postListWrap">
 					<div class="postListTop">
 						<div>IT 9개의 글</div>
@@ -83,11 +117,20 @@
 								<tr>
 							</thead>
 							<tbody>
+							<%
+									postVlist = postMgr.getPostList(id, cateName);
+									for(int i=0; i<postVlist.size(); i++){
+										BlogPostBean bean = postVlist.get(i);
+										String title = bean.getPostTitle();
+										String date = bean.getPostDate();
+										int view = bean.getPostView();
+							%>
 								<tr>
-									<td style=" width:80%">즐겁구나</td>
-									<td style="width:10%">20.12.12</td>
-									<td style="width:10%">1,093</td>
+									<td style=" width:80%"><%=title %></td>
+									<td style="width:10%"><%=date %></td>
+									<td style="width:10%"><%=view %></td>
 								<tr>
+							<%	} %>
 							</tbody>
 						</table>
 					</div>
