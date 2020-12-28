@@ -1,19 +1,17 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 
-<%
-		request.setCharacterEncoding("utf-8");
-%>
+<% request.setCharacterEncoding("EUC-KR"); %>
+
 
 <!DOCTYPE html>
     <head>
-        <meta charset="UTF-8">
-        <title>ÎÑ§Ïù¥Î≤Ñ : ÌöåÏõêÍ∞ÄÏûÖ</title>
+        <title>≥◊¿Ãπˆ : »∏ø¯∞°¿‘</title>
         <link rel="stylesheet" src="css" href="resources/css/member.css">
     </head>
     <body>
         <!-- header -->
         <div id="header">
-            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="ÎÑ§Ïù¥Î≤Ñ ÌöåÏõêÍ∞ÄÏûÖ ÌéòÏù¥ÏßÄ Î≥¥Îü¨Í∞ÄÍ∏∞"><img src="resources/img/naver.png" id="logo"></a>
+            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="≥◊¿Ãπˆ »∏ø¯∞°¿‘ ∆‰¿Ã¡ˆ ∫∏∑Ø∞°±‚"><img src="resources/img/naver.png" id="logo"></a>
         </div>
 
       
@@ -26,7 +24,7 @@
                 <!-- ID -->
                 <div>
                     <h3 class="join_title">
-                        <label for="id">ÏïÑÏù¥Îîî</label>
+                        <label for="id">æ∆¿Ãµ</label>
                     </h3>
                     <span class="box int_id">
                         <input type="text" name="id" id="id" class="int" maxlength="20">
@@ -37,10 +35,10 @@
 
                 <!-- PW1 -->
                 <div>
-                    <h3 class="join_title"><label for="pswd1">ÎπÑÎ∞ÄÎ≤àÌò∏</label></h3>
+                    <h3 class="join_title"><label for="pswd1">∫Òπ–π¯»£</label></h3>
                     <span class="box int_pass">
                         <input type="text" name="pswd1" id="pswd1" class="int" maxlength="20">
-                        <span id="alertTxt">ÏÇ¨Ïö©Î∂àÍ∞Ä</span>
+                        <span id="alertTxt">ªÁøÎ∫“∞°</span>
                         <img src="resources/img/m_icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
@@ -48,7 +46,7 @@
 
                 <!-- PW2 -->
                 <div>
-                    <h3 class="join_title"><label for="pswd2">ÎπÑÎ∞ÄÎ≤àÌò∏ Ïû¨ÌôïÏù∏</label></h3>
+                    <h3 class="join_title"><label for="pswd2">∫Òπ–π¯»£ ¿Á»Æ¿Œ</label></h3>
                     <span class="box int_pass_check">
                         <input type="text" name="pswd2" id="pswd2" class="int" maxlength="20">
                         <img src="resources/img/m_icon_check_disable.png" id="pswd2_img1" class="pswdImg">
@@ -58,7 +56,7 @@
 
                 <!-- NAME -->
                 <div>
-                    <h3 class="join_title"><label for="name">Ïù¥Î¶Ñ</label></h3>
+                    <h3 class="join_title"><label for="name">¿Ã∏ß</label></h3>
                     <span class="box int_name">
                         <input type="text" name="name" id="name" class="int" maxlength="20">
                     </span>
@@ -67,13 +65,13 @@
 
                 <!-- BIRTH -->
                 <div>
-                    <h3 class="join_title"><label for="yy">ÏÉùÎÖÑÏõîÏùº</label></h3>
+                    <h3 class="join_title"><label for="yy">ª˝≥‚ø˘¿œ</label></h3>
 
                     <div id="bir_wrap">
                         <!-- BIRTH_YY -->
                         <div id="bir_yy">
                             <span class="box">
-                                <input type="text" name="birth_yy" id="yy" class="int" maxlength="4" placeholder="ÎÖÑ(4Ïûê)">
+                                <input type="text" name="birth_yy" id="yy" class="int" maxlength="4" placeholder="≥‚(4¿⁄)">
                             </span>
                         </div>
 
@@ -81,7 +79,7 @@
                         <div id="bir_mm">
                             <span class="box">
                                 <select name="birth_mm" id="mm" class="sel">
-                                    <option>Ïõî</option>
+                                    <option>ø˘</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -101,7 +99,7 @@
                         <!-- BIRTH_DD -->
                         <div id="bir_dd">
                             <span class="box">
-                                <input type="text" name="birth_dd" id="dd" class="int" maxlength="2" placeholder="Ïùº">
+                                <input type="text" name="birth_dd" id="dd" class="int" maxlength="2" placeholder="¿œ">
                             </span>
                         </div>
 
@@ -111,23 +109,23 @@
 
                 <!-- GENDER -->
                 <div>
-                    <h3 class="join_title"><label for="gender">ÏÑ±Î≥Ñ</label></h3>
+                    <h3 class="join_title"><label for="gender">º∫∫∞</label></h3>
                     <span class="box gender_code">
                         <select name="gender" id="gender" class="sel">
-                            <option>ÏÑ±Î≥Ñ</option>
-                            <option value="M">ÎÇ®Ïûê</option>
-                            <option value="F">Ïó¨Ïûê</option>
+                            <option>º∫∫∞</option>
+                            <option value="M">≥≤¿⁄</option>
+                            <option value="F">ø©¿⁄</option>
                         </select>                            
                     </span>
-                    <span class="error_next_box">ÌïÑÏàò Ï†ïÎ≥¥ÏûÖÎãàÎã§.</span>
+                    <span class="error_next_box">« ºˆ ¡§∫∏¿‘¥œ¥Ÿ.</span>
                 </div>
 
 
 				 <!-- MOBILE -->
                 <div>
-                    <h3 class="join_title"><label for="phoneNo">Ìú¥ÎåÄÏ†ÑÌôî</label></h3>
+                    <h3 class="join_title"><label for="phoneNo">»ﬁ¥Î¿¸»≠</label></h3>
                     <span class="box int_mobile">
-                        <input type="tel" name="mobile" id="mobile" class="int" maxlength="16" placeholder="Ï†ÑÌôîÎ≤àÌò∏ ÏûÖÎ†•">
+                        <input type="tel" name="mobile" id="mobile" class="int" maxlength="16" placeholder="¿¸»≠π¯»£ ¿‘∑¬">
                     </span>
                     <span class="error_next_box"></span>    
                 </div>
@@ -136,7 +134,7 @@
                 <!-- JOIN BTN-->
                 <div class="btn_area">
                     <input type="submit" id="btnJoin">
-                        <span>Í∞ÄÏûÖÌïòÍ∏∞</span>
+                       
                 </div>
                 </form>
             </div> 

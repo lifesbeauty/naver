@@ -91,6 +91,11 @@ body {
 	height: 50px;
 	border-top: 2px solid #19ce60;
 }
+#categoryWrap-main {
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.12);
+	height: 50px;
+	border-top: 1px solid #e4e8eb;
+}
 #categoryBar {
 	height: 50px;
 	display: flex;
@@ -380,6 +385,15 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+.loginBoxBottom-item {
+	width: 100%;
+	height: 100%;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 0.1px solid #e4e8eb;
 }
 .weatherBox {
 	margin-top: 10px;

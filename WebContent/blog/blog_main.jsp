@@ -16,12 +16,13 @@
 	<div id="root">
 		
 		<div id="searchBar-blog">
-			<a href="../chu/index.jsp" style="width: 81px; height: 26px; margin-left: 18%;">
-				<img src="./resources/img/logo-md.png" alt="img">
-			</a>
-			<div style="border-right: 1px solid #e4e8eb; height: 23px; padding-right: 5px; margin-right: 5px;"></div>
-			<input type="text" name="keyWord" value="" style="width: 533px; height: 40px; border: none;">
-			<input type="button" onclick="javascript:check()" style="width: 60px; height: 60px; border: 0;"> 
+			<div class="blog-navbar-left">
+				<a href="../chu/index.jsp" style="width: 81px; height: 26px; margin-left: 18%;">
+					<img src="./resources/img/logo-md.png" alt="img">
+				</a> 
+			</div>
+			<div class="blog-navbar-right">
+			</div> 
 		</div>
 		
 		<div id="categoryWrap">
@@ -34,7 +35,7 @@
 		
 			<div class="conLeft">
 			<%
-						String id = "aa";//id로 로그인상태 확인 후 출력문 결정
+						String id = (String) session.getAttribute("id");//id로 로그인상태 확인 후 출력문 결정
 						String neighbor = "aa";//neighbor로 이웃 확인 후 출력문 결정
 						//3가지 경우의 수
 						//로그인 했다
@@ -139,6 +140,19 @@
 			
 			<div class="conRight">
 			
+				<%if(id!=null&&!id.equals("")) {%>
+				<div class="loginBox">
+					<div class="loginBoxTop" style="flex-direction: column;">
+						<div><strong><%=id %></strong>님 환영합니다.</div>
+						<div><a href="../joon/logout.jsp">로그아웃</a></div>
+					</div>
+					<div class="loginBoxBottom" style="justify-content: space-around;">
+						<div class="loginBoxBottom-item">My 지식인</div>
+						<div class="loginBoxBottom-item"><a href="../blog/blog_<%=id%>.jsp">My 블로그</a></div>
+						<div class="loginBoxBottom-item">My 쇼핑</div>
+					</div>
+				</div>
+				<%} else { %>
 				<div class="loginBox">
 					<div class="loginBoxTop">
 						<input class="loginButton" onclick="location.href='../joon/login.jsp'" type="button" value="로그인">
@@ -152,6 +166,7 @@
 						</div>
 					</div>
 				</div>
+				<%} %>
 				
 				<div class="weatherBox">날씨</div>
 				<div class="shopBox">

@@ -68,6 +68,7 @@ function checkId() {
         error[0].innerHTML = "멋진 아이디네요!";
         error[0].style.color = "#08A600";
         error[0].style.display = "block";
+
     }
 }
 

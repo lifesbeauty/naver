@@ -1,19 +1,28 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page import ="joinmember.MemberMgr" %>
+
 <jsp:useBean id="mgr" class="joinmember.MemberMgr"/>
+<jsp:useBean id="bean" class="joinmember.MemberBean"/>
+    
 <%
-	  request.setCharacterEncoding("EUC-KR");
-	  String cPath = request.getContextPath();
-	  String id = request.getParameter("id");
-	  String pass = request.getParameter("pwd");
-	  String msg = "·Î±×ÀÎ¿¡ ½ÇÆÐ ÇÏ¿´½À´Ï´Ù.";
-	  
-	  boolean result = mgr.loginMember(id,pass);
-	  if(result){
-	    session.setAttribute("idKey",id);
-	    msg = "·Î±×ÀÎ¿¡ ¼º°ø ÇÏ¿´½À´Ï´Ù.";
-	  }
+
+request.setCharacterEncoding("EUC-KR");
+String cPath = request.getContextPath();
+String id = request.getParameter("id");
+String pswd1 = request.getParameter("pw");
+String msg = "ë¡œê·¸ì¸ì— ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.";
+
+boolean result = mgr.loginMember(id,pswd1);
+if(result){
+  session.setAttribute("id",id);
+  msg = "ë¡œê·¸ì¸ì— ì„±ê³µ í•˜ì˜€ìŠµë‹ˆë‹¤.";
+}
 %>
 <script>
-	alert("<%=msg%>");
-	location.href = "login.jsp";
+alert("<%=msg%>");
+if(<%=result%>)
+  location.href = "../chu/index.jsp";
+else
+  location.href = "login.jsp";
 </script>

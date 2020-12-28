@@ -16,6 +16,7 @@
 		String keyWord = "";
 		if(request.getParameter("keyWord") != null)
 			keyWord = request.getParameter("keyWord");
+		String id = (String) session.getAttribute("id");
 %>		
 
 <!DOCTYPE html>
@@ -33,18 +34,18 @@
 		</div>
 		<div id="searchBar">
 			<a href="index.jsp">
-				<img src="./resources/img/logo-lg.jpg" alt="img" style="width: 200px; height: 60px;">
+				<img src="./resources/img/logo-lg.jpg" alt="img" style="width: 250px; height: 60px;">
 			</a>
 			<form class="searchFrm" name="searchFrm" action="search.jsp">
 				<input type="text" name="keyWord" style="width: 533px; height: 57px; border: 2px solid #19ce60;">
 				<input type="button" onclick="javascript:check()" style="width: 60px; height: 60px; border: 0; ">
 			</form> 
 		</div>
-		<div id="categoryWrap">
+		<div id="categoryWrap-main">
 			<div id="categoryBar">
 				<div class="category"><a href="../blog/blog_main.jsp">블로그</a></div>
 				<div class="category"><a href="../choi/naverin_main.jsp">지식인</a></div>
-				<div class="category"><a href="#">쇼핑</a></div>
+				<div class="category"><a href="../hok/mainTop.jsp">쇼핑</a></div>
 				<div class="category"><a href="#">여행</a></div>
 			</div>
 		</div>
@@ -105,6 +106,19 @@
 			
 			<div class="conRight">
 			
+				<%if(id!=null&&!id.equals("")) {%>
+				<div class="loginBox">
+					<div class="loginBoxTop" style="flex-direction: column;">
+						<div><strong><%=id %></strong>님 환영합니다.</div>
+						<div><a href="../joon/logout.jsp">로그아웃</a></div>
+					</div>
+					<div class="loginBoxBottom" style="justify-content: space-around;">
+						<div class="loginBoxBottom-item">My 지식인</div>
+						<div class="loginBoxBottom-item"><a href="../blog/blog_<%=id%>.jsp">My 블로그</a></div>
+						<div class="loginBoxBottom-item">My 쇼핑</div>
+					</div>
+				</div>
+				<%} else { %>
 				<div class="loginBox">
 					<div class="loginBoxTop">
 						<input class="loginButton" onclick="location.href='../joon/login.jsp'" type="button" value="로그인">
@@ -118,6 +132,9 @@
 						</div>
 					</div>
 				</div>
+				<%} %>
+					
+				
 				
 				<div class="weatherBox">날씨</div>
 				<div class="shopBox">

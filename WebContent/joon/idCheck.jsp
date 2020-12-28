@@ -1,14 +1,14 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=EUC-KR"%>
 <jsp:useBean id="mgr" class="joinmember.MemberMgr"/>
 <%
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("EUC-KR");
 		String id = request.getParameter("id");
 		boolean result = mgr.checkId(id);
 %>
 <!doctype html>
 <html>
 <head>
-<title>ID ì¤‘ë³µì²´í¬</title>
+<title>ID Áßº¹Ã¼Å©</title>
 <link href="resources/css/member.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="#FFFFCC">
@@ -16,12 +16,12 @@
 <br/><b><%=id%></b>
 <%
 		if(result){
-			out.println("ëŠ” ì´ë¯¸ ì¡´ì¬í•˜ëŠ” IDì…ë‹ˆë‹¤.<p/>");
+			out.println("´Â ÀÌ¹Ì Á¸ÀçÇÏ´Â IDÀÔ´Ï´Ù.<p/>");
 		}else{
-			out.println("ëŠ” ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.<p/>");
+			out.println("´Â »ç¿ë °¡´ÉÇÕ´Ï´Ù.<p/>");
 		}
 %>
-<a href="#" onclick="self.close()">ë‹«ê¸°</a>
+<a href="#" onclick="self.close()">´İ±â</a>
 </div>
 </body>
 </html>

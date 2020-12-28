@@ -1,5 +1,9 @@
-<%@ page contentType="text/html; charset=utf-8"%>
-<%request.setCharacterEncoding("utf-8"); %>
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.OutputStreamWriter"%>
+<%@page import="java.io.BufferedWriter"%>
+<%@page import="java.io.FileWriter"%>
+<%@ page contentType="text/html; charset=EUC-KR"%>
+<%request.setCharacterEncoding("EUC-KR"); %>
 <jsp:useBean id="mgr" class="joinmember.MemberMgr"/>
 <jsp:useBean id="bean" class="joinmember.MemberBean"/>
 <%
@@ -13,15 +17,28 @@
 		bean.setGender(request.getParameter("gender"));
 		bean.setMobile(request.getParameter("mobile"));
 		
+		String id = request.getParameter("id");
 	
-		String msg = "ê°€ìž…ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.";		
+		String msg = "°¡ÀÔ¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù.";		
 		
 		boolean result = mgr.insertMember(bean);
 		if(result){
-			msg = "íšŒì›ê°€ìž…ì„ ì¶•í•˜ë“œë¦½ë‹ˆë‹¤.";
+			msg = "È¸¿ø°¡ÀÔÀ» ÃàÇÏµå¸³´Ï´Ù.";
+			
+			BufferedWriter createBlog = new BufferedWriter(
+					new OutputStreamWriter(
+							new FileOutputStream("C:/Jsp/naver/WebContent/blog/test.txt"), "euc-kr"));
+				createBlog.write("ºí·Î±× ÅÛÇÃ¸´ ¼ÒÈ¯");
+				createBlog.close();
+					
+			FileWriter createBlogPost = new FileWriter
+					("C:/Jsp/naver/WebContent/blog/blog_"+id+"_posting.jsp");
+					createBlogPost.write("ºí·Î±× Æ÷½ºÆÃ ÅÛÇÃ¸´ ¼ÒÈ¯");
+					createBlogPost.close();
+			
 			response.sendRedirect("login.jsp");
 		}
 %>
 <script>
-	alert(msg);
+alert(<%=msg%>);
 </script>

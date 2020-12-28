@@ -24,9 +24,17 @@
 		
 		<div id="blog-navBarWrap">
 			<div class="blog-navbar">
-				<select>
-					<option>이웃블로그
-				</select> 
+				<div class="blog-navbar-left">
+					<a href="../chu/index.jsp" style="width: 81px; height: 26px; margin-left: 18%;">
+						<img src="./resources/img/logo-md.png" alt="img">
+					</a> 
+				</div>
+				<div class="blog-navbar-right">
+					<select>
+						<option>이웃블로그
+					</select>
+					<div><a href="../joon/logout.jsp">로그아웃</a></div>
+				</div>
 			</div>
 		</div>
 		
@@ -68,13 +76,28 @@
 			<div class="blog-conRight">
 			
 				<div class="postWrap">
-					<form method="post" action="postingProc.jsp">
-						<input type="text" name="title" style="font-size: 20px; width: 99%; height: 40px; margin-bottom: 5px;"
+					<form name="postFrm" method="post" action="postingProc.jsp" enctype="multipart/form-data">
+						<input type="text" name="title" style="font-size: 20px; width: 99%; height: 40px;"
 									placeholder="제목을 입력하세요">
-  						<textarea id="summernote" name="contents"></textarea>
+						<div style="display: flex; justify-content: flex-end;">
+							<select name="category">
+								<option>카테고리
+								<option value="1">취미
+								<option value="2">일상
+							</select>
+							<select name="topic">
+								<option>주제
+								<option value="1">IT
+								<option value="2">요리
+								<option value="3">여행
+								<option value="4">예술
+								<option value="5">스포츠
+							</select>
+						</div>
+  						<textarea id="summernote" name="text"></textarea>
+  						<input multiple="multiple" type="file" name="filename[]">
   						<input type="submit" value="저장">
   						<input type="hidden" name="bid" value="cjsgoddns">
-  						<input type="hidden" name="category" value="IT">
 					</form>
 				</div>
 				
