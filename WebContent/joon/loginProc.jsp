@@ -11,12 +11,12 @@ request.setCharacterEncoding("EUC-KR");
 String cPath = request.getContextPath();
 String id = request.getParameter("id");
 String pswd1 = request.getParameter("pw");
-String msg = "ë¡œê·¸ì¸ì— ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.";
+String msg = "·Î±×ÀÎ ½ÇÆÐ";
 
 boolean result = mgr.loginMember(id,pswd1);
 if(result){
   session.setAttribute("id",id);
-  msg = "ë¡œê·¸ì¸ì— ì„±ê³µ í•˜ì˜€ìŠµë‹ˆë‹¤.";
+  msg = "·Î±×ÀÎ ¼º°ø";
 }
 %>
 <script>
