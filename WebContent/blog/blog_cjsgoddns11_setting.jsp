@@ -9,7 +9,7 @@
 <jsp:useBean id="cateMgr" class="blog.CateMgr"/>
 <jsp:useBean id="postMgr" class="blog.BlogPostMgr"/>
 <%
-		String id = "dlstod";
+		String id = "cjsgoddns11";
 		blogBean = blogMgr.getBlogPage(id);
 		String blogBanner = blogBean.getBannerImg();
 		String blogProfileDesc = blogBean.getProfileDesc();

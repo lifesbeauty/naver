@@ -676,7 +676,7 @@ public class BlogTemplate {
 				+ "  						<textarea id=\"summernote\" name=\"text\"></textarea>\r\n"
 				+ "  						<input multiple=\"multiple\" type=\"file\" name=\"filename[]\">\r\n"
 				+ "  						<input type=\"submit\" value=\"ÀúÀå\">\r\n"
-				+ "  						<input type=\"hidden\" name=\"bid\" value=\"cjsgoddns\">\r\n"
+				+ "  						<input type=\"hidden\" name=\"bid\" value=\""+id+"\">\r\n"
 				+ "					</form>\r\n"
 				+ "				</div>\r\n"
 				+ "				\r\n"
