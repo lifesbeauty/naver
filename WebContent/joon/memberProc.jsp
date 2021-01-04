@@ -1,4 +1,4 @@
-<%@page import="joinmember.BlogTemplate"%>
+<%@page import="blog.BlogTemplate"%>
 <%@page import="java.io.FileOutputStream"%>
 <%@page import="java.io.OutputStreamWriter"%>
 <%@page import="java.io.BufferedWriter"%>
