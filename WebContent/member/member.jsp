@@ -52,18 +52,29 @@
 		birth = frm.birth.value;
 		gender = frm.gender.value;
 		phone = frm.phone.value;
-		if(id.trim()=="") {
-			msg="아이디를 입력하세요";
+		if(id.replace(/(^\s*)|(\s*$)/, "").trim()=="") {
+			msg="아이디를 입력해주세요";
 			frm.id.focus();
 		} else if(id.length < 8 || id.length > 12) {
-			msg="아이디는 8 ~ 12자 이내로 입력해주세요.";
+			msg="아이디는 8 ~ 12자 이내로 입력해주세요";
 			frm.id.focus();
 		} else if(pwd1=="") {
 			msg="비밀번호를 입력하세요";
 			frm.pwd1.focus();
 		} else if(pwd1.length < 8 || pwd1.length > 12) {
-			msg="비밀번호는 8 ~ 12자 이내로 입력해주세요.";
+			msg="비밀번호는 8 ~ 12자 이내로 입력해주세요";
+		} else if(pwd1!=pwd2) {
+			msg="비밀번호를 확인해주세요";
+		} else if(){
+			msg="이름을 입력하세요";
+		} else if(){
+			msg="생년월일을 입력하세요";
+		} else if(){
+			msg="성별을 입력하세요";
+		} else if(){
+			msg="휴대전화를 입력하세요";
 		}
+		
 		alert(msg);
 	}
 </script>
